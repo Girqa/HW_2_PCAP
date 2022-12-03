@@ -89,7 +89,7 @@ public class AgentDetector {
     }
 
     private byte[] getAgentPacket() {
-        String content = AIDFactory.describeAIDWithJSON(agent);
+        String content = ParsingProvider.toJson(agent);
         return packetHelper.collectPacket(content, communicationPort);
     }
 }

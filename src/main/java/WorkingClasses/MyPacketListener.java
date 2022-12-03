@@ -39,14 +39,14 @@ public class MyPacketListener implements PacketListener {
                 }
                 agents.put(receivedAID, new Date());
             }
-            log.trace("Agent {} got AID {}", agent.getName(), receivedAID.getName());
+            log.debug("Agent {} got AID {}", agent.getName(), receivedAID.getName());
         }
     }
 
     private AID parsePacket(Packet packet) {
         byte[] data = packet.getRawData();
         String jsonContent = packetHelper.parse(data);
-        return AIDFactory.createAID(ParsingProvider.fromJson(jsonContent, String.class));
+        return ParsingProvider.fromJson(jsonContent, AID.class);
     }
 
     private void informSubscribers(String msg) {
