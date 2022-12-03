@@ -1,0 +1,20 @@
+Разработать модуль обнаржуения агентов с помощью Udp мониторинга.
+	- Разрабаотать класс AgentDetector:
+		а) void startDiscovering() - обнаружение других агентов, должно выполняться в своем потоке (ScheduleExecutor)
+		б) void startSending() - периодическая отправка пакетов (ScheduleExecutor)
+		в) void deadAgentRemoving - удаляет страых агентов 
+		г) List<AID> getActiveAgents() - возвращает список живых агентов
+		д) void subsribeOnChange(Listner l); - метод отслеживает изменение текущих агентов и уведомляет всех подписчиков
+		е) void stopSending();
+	- Patterns:
+		а) Builder / fabric - для создания пакета на отправку (делается 1 раз при старте)
+		б) Observer - для реализации subsribeOnChange метода
+	- Использовать ScheduleExecutor для задач: отправка пакетов, отслеживание неактуальных AID и приянтия пакетов
+	- Использовать Json для передачи информации по UDP
+
+Создать поведение пинг-понга для агентов, каждый агент в Ticker поведении отправляет всем известным агентам Ping, обратно получает Pong
+
+Тесты:
+	- Запустить 2 AgentDetector, убедиться, что activeAgents =1.
+	- Запустить 2 AgentDetector, убедиться, что activeAgents =1, остановить отправку у 1 AgentDetector, убедиться, что у activeAgents =1 и  activeAgents =0
+	- Запустить 4 AgentDetector, убедиться, что activeAgents =3 у всех экземпляров.
