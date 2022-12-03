@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17be17cb-891b-4e66-adab-004fee0a4ec9" name="Changes" comment="Created Ping Pong agent and appropriate behaviours. All works perfectly.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Interfaces/Listener.java" afterDir="false" />
+    <list default="true" id="17be17cb-891b-4e66-adab-004fee0a4ec9" name="Changes" comment="Final version.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Agents/PingPongPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Agents/PingPongPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Factorys/MyPacketListener.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/WorkingClasses/AgentDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WorkingClasses/AgentDetector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WorkingClasses/Listener.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +143,7 @@
       <workItem from="1669914823286" duration="413000" />
       <workItem from="1669915248812" duration="781000" />
       <workItem from="1669916073408" duration="42500000" />
-      <workItem from="1670080119951" duration="528000" />
+      <workItem from="1670080119951" duration="2027000" />
     </task>
     <task id="LOCAL-00001" summary="Working version">
       <created>1670064834219</created>
@@ -171,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670079693951</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Final version.">
+      <created>1670080774370</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670080774370</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +194,7 @@
     <MESSAGE value="Working version" />
     <MESSAGE value="Created tests" />
     <MESSAGE value="Created Ping Pong agent and appropriate behaviours. All works perfectly." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created Ping Pong agent and appropriate behaviours. All works perfectly." />
+    <MESSAGE value="Final version." />
+    <option name="LAST_COMMIT_MESSAGE" value="Final version." />
   </component>
 </project>

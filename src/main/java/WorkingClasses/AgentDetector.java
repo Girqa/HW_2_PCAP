@@ -32,10 +32,12 @@ public class AgentDetector {
     private ScheduledFuture<?> sendingTask;
     private final Map<AID, Date> agents;
     private final List<Listener> subscribers = new ArrayList<>();
+    private byte[] packet;
 
     public AgentDetector() {
         ses = Executors.newScheduledThreadPool(3);
         agents = new ConcurrentHashMap<>();
+        packet = getAgentPacket();
     }
 
     public void startDiscovering()  {
@@ -55,7 +57,7 @@ public class AgentDetector {
     public void startSending() {
         if (sendingTask == null) {
             log.info("{} started sending.", agent.getName());
-            sendingTask = ses.scheduleWithFixedDelay(() -> pcap.sendPacket(getAgentPacket()),
+            sendingTask = ses.scheduleWithFixedDelay(() -> pcap.sendPacket(packet),
                     0, 50, TimeUnit.MILLISECONDS);
         } else {
             log.warn("Unable command: Sending has been started before.");
