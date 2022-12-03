@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17be17cb-891b-4e66-adab-004fee0a4ec9" name="Changes" comment="Working version">
+    <list default="true" id="17be17cb-891b-4e66-adab-004fee0a4ec9" name="Changes" comment="Created tests">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Agents/PingPongPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Behaviours/PingPongIni.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Behaviours/PingPongRe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Builders/PacketBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Factorys/Builders/PacketBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Factorys/Builders/PacketBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Builders/PacketBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Factorys/PacketBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/WorkingClasses/AgentDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WorkingClasses/AgentDetector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WorkingClasses/MyPacketListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WorkingClasses/MyPacketListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WorkingClasses/MyPacketListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Factorys/MyPacketListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AgentDetectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AgentDetectorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,8 +50,8 @@
     "extract.method.default.visibility": "private",
     "last_opened_file_path": "B:/Java/MAS/HW_tasks/Task2/src/main/resources",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.20229885",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
@@ -60,7 +64,15 @@
       <recent name="B:\Java\MAS\HW_tasks\Task2\src\main\java\AdditionalClasses" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AgentDetectorTest">
+  <component name="RunManager" selected="Application.JadeStarter">
+    <configuration name="JadeStarter" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="jade.Boot" />
+      <module name="Task2" />
+      <option name="PROGRAM_PARAMETERS" value="-gui -agents Player1:Agents.PingPongPlayer;Player2:Agents.PingPongPlayer;Player3:Agents.PingPongPlayer;Player4:Agents.PingPongPlayer;" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Task2" />
@@ -72,6 +84,7 @@
       <module name="Task2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="AgentDetectorTest" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -107,6 +120,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.JadeStarter" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.AgentDetectorTest" />
+      <item itemvalue="JUnit.AgentDetectorTest.stoppingOneDetector" />
+      <item itemvalue="JUnit.AgentDetectorTest.testManyDetectors" />
+      <item itemvalue="JUnit.AgentDetectorTest.testTwoDetectors" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.AgentDetectorTest" />
@@ -129,7 +150,7 @@
       <workItem from="1669895734263" duration="948000" />
       <workItem from="1669914823286" duration="413000" />
       <workItem from="1669915248812" duration="781000" />
-      <workItem from="1669916073408" duration="36031000" />
+      <workItem from="1669916073408" duration="42364000" />
     </task>
     <task id="LOCAL-00001" summary="Working version">
       <created>1670064834219</created>
@@ -138,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670064834219</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Created tests">
+      <created>1670068667862</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670068667862</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +185,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Working version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working version" />
+    <MESSAGE value="Created tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created tests" />
   </component>
 </project>

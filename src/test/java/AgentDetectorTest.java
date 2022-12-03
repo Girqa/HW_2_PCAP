@@ -5,7 +5,6 @@ import jade.core.ProfileImpl;
 import jade.wrapper.AgentContainer;
 import jade.wrapper.ControllerException;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -52,7 +51,7 @@ public class AgentDetectorTest {
 
         detector2.stopSending();
 
-        doPause(200L);
+        doPause(300L);
 
         assertEquals(0, detector1.getActiveAgents().size());
         assertEquals(1, detector2.getActiveAgents().size());

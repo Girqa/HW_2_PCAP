@@ -3,11 +3,12 @@ package WorkingClasses;
 import AdditionalClasses.PacketHelper;
 import AdditionalClasses.ParsingProvider;
 import AdditionalClasses.PcapHelper;
-import Factorys.AIDFactory;
+import Builders.PacketBuilder;
 import jade.core.AID;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.pcap4j.core.PacketListener;
+import org.pcap4j.packet.Packet;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -37,7 +38,7 @@ public class AgentDetector {
 
     public void startDiscovering()  {
         if (discoveringTask == null) {
-            PacketListener listener = new MyPacketListener(agents, packetHelper, agent, subscribers);
+            PacketListener listener = new MyPackageListener();
             discoveringTask = pcap.startPacketsCapturing(communicationPort, listener, ses);
             cleaningTask = ses.scheduleWithFixedDelay(this::deadAgentRemoving,
                     100,
@@ -88,8 +89,49 @@ public class AgentDetector {
         sendingTask = null;
     }
 
+    public void stop() {
+        log.info("Detector of {} was stopped", agent.getLocalName());
+        cleaningTask.cancel(true);
+        sendingTask.cancel(true);
+        discoveringTask.cancel(true);
+    }
+
     private byte[] getAgentPacket() {
         String content = ParsingProvider.toJson(agent);
-        return packetHelper.collectPacket(content, communicationPort);
+        byte[] packet = new PacketBuilder()
+                .setData(content)
+                .setPort(communicationPort)
+                .setSourceIP("127.0.0.1")
+                .setDestinationIP("255.255.255.255")
+                .getPacket();
+        return packet;
+    }
+
+    private class MyPackageListener implements PacketListener {
+        @Override
+        public void gotPacket(Packet packet) {
+            if (packet != null) {
+                AID receivedAID = parsePacket(packet);
+                if (!receivedAID.equals(agent)) {
+                    if (!agents.containsKey(receivedAID)) {
+                        informSubscribers("Added: " + receivedAID.toString());
+                    }
+                    agents.put(receivedAID, new Date());
+                }
+                log.debug("Agent {} got AID {}", agent.getName(), receivedAID.getName());
+            }
+        }
+
+        private AID parsePacket(Packet packet) {
+            byte[] data = packet.getRawData();
+            String jsonContent = packetHelper.parse(data);
+            return ParsingProvider.fromJson(jsonContent, AID.class);
+        }
+
+        private void informSubscribers(String msg) {
+            for (Listener subscriber: subscribers) {
+                subscriber.listen(msg);
+            }
+        }
     }
 }
