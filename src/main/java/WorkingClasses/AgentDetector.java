@@ -4,6 +4,7 @@ import AdditionalClasses.PacketHelper;
 import AdditionalClasses.ParsingProvider;
 import AdditionalClasses.PcapHelper;
 import Builders.PacketBuilder;
+import Interfaces.Listener;
 import jade.core.AID;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -25,15 +26,16 @@ public class AgentDetector {
     private AID agent;
     @Setter
     private long deadAgentDelay;
-    private ScheduledExecutorService ses;
+    private final ScheduledExecutorService ses;
     private ScheduledFuture<?> discoveringTask;
     private ScheduledFuture<?> cleaningTask;
     private ScheduledFuture<?> sendingTask;
-    private Map<AID, Date> agents = new ConcurrentHashMap();
-    private List<Listener> subscribers = new ArrayList<>();
+    private final Map<AID, Date> agents;
+    private final List<Listener> subscribers = new ArrayList<>();
 
     public AgentDetector() {
         ses = Executors.newScheduledThreadPool(3);
+        agents = new ConcurrentHashMap<>();
     }
 
     public void startDiscovering()  {
@@ -67,8 +69,14 @@ public class AgentDetector {
                 log.info("{} was deleted from list of {}",
                         entry.getKey().getLocalName(),
                         agent.getLocalName());
+
                 log.info("Delay of sending package for {} - {}", entry.getKey().getName(),
                         curDate.getTime() - entry.getValue().getTime());
+
+                informSubscribers(entry.getKey().getLocalName()
+                        +" was deleted from list of "
+                        +agent.getLocalName());
+
                 agents.remove(entry.getKey());
             }
         }
@@ -98,15 +106,18 @@ public class AgentDetector {
 
     private byte[] getAgentPacket() {
         String content = ParsingProvider.toJson(agent);
-        byte[] packet = new PacketBuilder()
+        return new PacketBuilder()
                 .setData(content)
                 .setPort(communicationPort)
                 .setSourceIP("127.0.0.1")
                 .setDestinationIP("255.255.255.255")
                 .getPacket();
-        return packet;
     }
-
+    private void informSubscribers(String msg) {
+        for (Listener subscriber: subscribers) {
+            subscriber.listen(msg);
+        }
+    }
     private class MyPackageListener implements PacketListener {
         @Override
         public void gotPacket(Packet packet) {
@@ -114,7 +125,7 @@ public class AgentDetector {
                 AID receivedAID = parsePacket(packet);
                 if (!receivedAID.equals(agent)) {
                     if (!agents.containsKey(receivedAID)) {
-                        informSubscribers("Added: " + receivedAID.toString());
+                        informSubscribers("Added: " + receivedAID);
                     }
                     agents.put(receivedAID, new Date());
                 }
@@ -126,12 +137,6 @@ public class AgentDetector {
             byte[] data = packet.getRawData();
             String jsonContent = packetHelper.parse(data);
             return ParsingProvider.fromJson(jsonContent, AID.class);
-        }
-
-        private void informSubscribers(String msg) {
-            for (Listener subscriber: subscribers) {
-                subscriber.listen(msg);
-            }
         }
     }
 }

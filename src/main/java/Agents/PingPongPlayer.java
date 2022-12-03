@@ -6,7 +6,9 @@ import Factorys.AgentDetectorFactory;
 import WorkingClasses.AgentDetector;
 import jade.core.Agent;
 import jade.core.behaviours.TickerBehaviour;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class PingPongPlayer extends Agent {
     private AgentDetector detector;
     @Override
@@ -19,6 +21,13 @@ public class PingPongPlayer extends Agent {
             }
         });
         addBehaviour(new PingPongRe(this));
+
+        // Subscribers test
+        if (getLocalName().endsWith("1")) {
+            detector.subscribeOnChange(
+                    msg -> log.info("Subscriber of {} received: {}", this.getLocalName(), msg)
+            );
+        }
     }
 
     @Override

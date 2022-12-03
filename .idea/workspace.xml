@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17be17cb-891b-4e66-adab-004fee0a4ec9" name="Changes" comment="Created tests">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Agents/PingPongPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Behaviours/PingPongIni.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Behaviours/PingPongRe.java" afterDir="false" />
+    <list default="true" id="17be17cb-891b-4e66-adab-004fee0a4ec9" name="Changes" comment="Created Ping Pong agent and appropriate behaviours. All works perfectly.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Interfaces/Listener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Factorys/Builders/PacketBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Builders/PacketBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Factorys/PacketBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Agents/PingPongPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Agents/PingPongPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Factorys/MyPacketListener.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/WorkingClasses/AgentDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WorkingClasses/AgentDetector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WorkingClasses/MyPacketListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Factorys/MyPacketListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AgentDetectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AgentDetectorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WorkingClasses/Listener.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -48,7 +45,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
-    "last_opened_file_path": "B:/Java/MAS/HW_tasks/Task2/src/main/resources",
+    "last_opened_file_path": "B:/Java/MAS/HW_tasks/Task2",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.20229885",
@@ -150,7 +147,8 @@
       <workItem from="1669895734263" duration="948000" />
       <workItem from="1669914823286" duration="413000" />
       <workItem from="1669915248812" duration="781000" />
-      <workItem from="1669916073408" duration="42364000" />
+      <workItem from="1669916073408" duration="42500000" />
+      <workItem from="1670080119951" duration="528000" />
     </task>
     <task id="LOCAL-00001" summary="Working version">
       <created>1670064834219</created>
@@ -166,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670068667862</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Created Ping Pong agent and appropriate behaviours. All works perfectly.">
+      <created>1670079693951</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670079693951</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +191,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Working version" />
     <MESSAGE value="Created tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created tests" />
+    <MESSAGE value="Created Ping Pong agent and appropriate behaviours. All works perfectly." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created Ping Pong agent and appropriate behaviours. All works perfectly." />
   </component>
 </project>
