@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17be17cb-891b-4e66-adab-004fee0a4ec9" name="Changes" comment="Final version.">
+    <list default="true" id="17be17cb-891b-4e66-adab-004fee0a4ec9" name="Changes" comment="Few details resolved.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/AdditionalClasses/AIDDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Factorys/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Factorys/Sorter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Factorys/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/WorkingClasses/AgentDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WorkingClasses/AgentDetector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AgentDetectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AgentDetectorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -65,9 +70,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Factorys.Test" />
       <module name="Task2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Factorys.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -114,7 +125,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.JadeStarter" />
-      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.AgentDetectorTest" />
       <item itemvalue="JUnit.AgentDetectorTest.stoppingOneDetector" />
       <item itemvalue="JUnit.AgentDetectorTest.testManyDetectors" />
@@ -123,10 +134,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.AgentDetectorTest" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="JUnit.AgentDetectorTest.stoppingOneDetector" />
-        <item itemvalue="JUnit.AgentDetectorTest.testManyDetectors" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.AgentDetectorTest.testTwoDetectors" />
+        <item itemvalue="JUnit.AgentDetectorTest.testManyDetectors" />
       </list>
     </recent_temporary>
   </component>
@@ -143,7 +154,10 @@
       <workItem from="1669914823286" duration="413000" />
       <workItem from="1669915248812" duration="781000" />
       <workItem from="1669916073408" duration="42500000" />
-      <workItem from="1670080119951" duration="2027000" />
+      <workItem from="1670080119951" duration="4587000" />
+      <workItem from="1670245080039" duration="1806000" />
+      <workItem from="1670251610844" duration="5958000" />
+      <workItem from="1670760191489" duration="567000" />
     </task>
     <task id="LOCAL-00001" summary="Working version">
       <created>1670064834219</created>
@@ -173,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670080774370</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Few details resolved.">
+      <created>1670089261041</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670089261041</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,6 +216,7 @@
     <MESSAGE value="Created tests" />
     <MESSAGE value="Created Ping Pong agent and appropriate behaviours. All works perfectly." />
     <MESSAGE value="Final version." />
-    <option name="LAST_COMMIT_MESSAGE" value="Final version." />
+    <MESSAGE value="Few details resolved." />
+    <option name="LAST_COMMIT_MESSAGE" value="Few details resolved." />
   </component>
 </project>

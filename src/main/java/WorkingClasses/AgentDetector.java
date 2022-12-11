@@ -1,5 +1,6 @@
 package WorkingClasses;
 
+import AdditionalClasses.AIDDTO;
 import AdditionalClasses.PacketHelper;
 import AdditionalClasses.ParsingProvider;
 import AdditionalClasses.PcapHelper;
@@ -32,12 +33,10 @@ public class AgentDetector {
     private ScheduledFuture<?> sendingTask;
     private final Map<AID, Date> agents;
     private final List<Listener> subscribers = new ArrayList<>();
-    private byte[] packet;
 
     public AgentDetector() {
         ses = Executors.newScheduledThreadPool(3);
         agents = new ConcurrentHashMap<>();
-        packet = getAgentPacket();
     }
 
     public void startDiscovering()  {
@@ -57,7 +56,7 @@ public class AgentDetector {
     public void startSending() {
         if (sendingTask == null) {
             log.info("{} started sending.", agent.getName());
-            sendingTask = ses.scheduleWithFixedDelay(() -> pcap.sendPacket(packet),
+            sendingTask = ses.scheduleWithFixedDelay(() -> pcap.sendPacket(getAgentPacket()),
                     0, 50, TimeUnit.MILLISECONDS);
         } else {
             log.warn("Unable command: Sending has been started before.");
@@ -107,7 +106,8 @@ public class AgentDetector {
     }
 
     private byte[] getAgentPacket() {
-        String content = ParsingProvider.toJson(agent);
+        AIDDTO dto = new AIDDTO(agent);
+        String content = ParsingProvider.toJson(dto);
         return new PacketBuilder()
                 .setData(content)
                 .setPort(communicationPort)
@@ -124,7 +124,8 @@ public class AgentDetector {
         @Override
         public void gotPacket(Packet packet) {
             if (packet != null) {
-                AID receivedAID = parsePacket(packet);
+                AIDDTO dto = parsePacket(packet);
+                AID receivedAID = new AID(dto.getAidName(), true);
                 if (!receivedAID.equals(agent)) {
                     if (!agents.containsKey(receivedAID)) {
                         informSubscribers("Added: " + receivedAID);
@@ -135,10 +136,10 @@ public class AgentDetector {
             }
         }
 
-        private AID parsePacket(Packet packet) {
+        private AIDDTO parsePacket(Packet packet) {
             byte[] data = packet.getRawData();
             String jsonContent = packetHelper.parse(data);
-            return ParsingProvider.fromJson(jsonContent, AID.class);
+            return ParsingProvider.fromJson(jsonContent, AIDDTO.class);
         }
     }
 }
